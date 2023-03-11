@@ -1,39 +1,35 @@
 #include <iostream>
 using namespace std;
 
-void linearSearch(int a[], int n)
+// Function to perform sequential search
+int sequentialSearch(int arr[], int n, int x)
 {
-    int temp = -1;
-
-    for (int i = 0; i < 5; i++)
+    // Iterate through each element in the array
+    for (int i = 0; i < n; i++)
     {
-        if (a[i] == n)
+        // If the element is found, return its index
+        if (arr[i] == x)
         {
-            cout << "Element found at position: " << i + 1 << endl;
-            temp = 0;
-            break;
+            return i;
         }
     }
-
-    if (temp == -1)
-    {
-        cout << "No Element Found" << endl;
-    }
+    // If the element is not found, return -1
+    return -1;
 }
 
 int main()
 {
-    int arr[5];
-    cout << "Please enter 5 elements of the Array" << endl;
-    for (int i = 0; i < 5; i++)
+    int arr[] = {2, 4, 1, 7, 9, 3};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int x = 7;
+    int result = sequentialSearch(arr, n, x);
+    if (result == -1)
     {
-        cin >> arr[i];
+        cout << "Element not found" << endl;
     }
-    cout << "Please enter an element to search" << endl;
-    int num;
-    cin >> num;
-
-    linearSearch(arr, num);
-
+    else
+    {
+        cout << "Element found at index " << result << endl;
+    }
     return 0;
 }
